@@ -1,18 +1,15 @@
-import joblib
-import requests
 import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
+import joblib
+import gdown
 
 st.set_page_config(page_title="Customer Churn Dashboard", layout="wide")
 
-# --- تحميل الموديل تلقائي ---
-url = "https://drive.google.com/uc?export=download&id=1iheHK6YKJvcXgKlipLnyQbU4Mcex1pdI"
-
-r = requests.get(url)
-with open("model.pkl", "wb") as f:
-    f.write(r.content)
+# --- تحميل الموديل تلقائي باستخدام gdown ---
+url = "https://drive.google.com/uc?id=1iheHK6YKJvcXgKlipLnyQbU4Mcex1pdI"
+gdown.download(url, "model.pkl", quiet=False)
 
 model = joblib.load("model.pkl")
 
