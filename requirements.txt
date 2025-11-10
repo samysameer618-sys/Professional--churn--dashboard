@@ -6,5 +6,5 @@ joblib
 xgboost
 matplotlib
 seaborn
-requests
+gdown
 plotly
